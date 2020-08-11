@@ -1,0 +1,30 @@
+{
+  "name": "passport-react-psql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serv": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \" npm run serv\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bunja/passport-react-psql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bunja/passport-react-psql/issues"
+  },
+  "homepage": "https://github.com/bunja/passport-react-psql#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
