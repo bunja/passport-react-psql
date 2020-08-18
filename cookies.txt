@@ -1,0 +1,4 @@
+localhost	FALSE	/	FALSE	1598648863	express:sess	eyJwYXNzcG9ydCI6eyJ1c2VyIjoiNWYxMDQ0NDcxZGI4NTYyOWI0ZGNiZWEwIn19
+localhost	FALSE	/	FALSE	1598648863	express:sess.sig	qZ4VHrV7IGlqOK4ZjA8uVSxLG-c
+localhost	FALSE	/	FALSE	0	connect.sid	s%3ABP87xG9QqezwULfHakSNhgjFmY6Thfy6.De0N%2FCSvQLMuVZUDU%2FcV7lQex1tAtWSNt7wo5SJKA5Y
+

@@ -14,12 +14,7 @@ app.use(express.static("./public"));
 const initalizePassport = require("./passportConfig");
 initalizePassport(passport);
 
-app.use(session({
-    secret: 'secret',
-    resave: false,
-    saveUninitialized: false
-}));
-
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -32,8 +27,13 @@ app.get('/auth/google/callback', passport.authenticate('google')
 );
 
 
-app.get('/', (req, res) => {
-    res.json({ succes: true});
+app.get('/api/home', (req, res) => {
+    console.log("where am i");
+    console.log("req.user ==> ",req.user);
+    res.json({ 
+        //succes: true,
+        user: req.user
+     });
 });
 
 app.get('/welcome', (req, res) => {
@@ -84,10 +84,23 @@ app.post('/api/register', async (req, res) => {
                                 throw err
                             }
                             console.log(results.rows);
-                            res.json({ 
-                                success: true,
-                                id: results.rows[0].id
-                            });
+                            const id = results.rows[0].id;
+                            const user = {
+                                name: name,
+                                email: email,
+                                id: id,
+                                password: hashedPassword
+                            };
+                            req.login(user, err => {
+                                if (err) {
+                                    console.log(err);
+                                }
+                                res.json({ 
+                                    success: true,
+                                    id: id
+                                });
+                            })
+                            
                         }
                     )
                 }
